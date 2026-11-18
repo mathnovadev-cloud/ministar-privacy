@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · Spin Wheel · MiniStar</title>
+<meta name="description" content="Privacy policy for Spin Wheel by MiniStar. The app works offline and collects no personal data.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='12.00,2.60 14.41,9.28 21.51,9.51 15.90,13.87 17.88,20.69 12.00,16.70 6.12,20.69 8.10,13.87 2.49,9.51 9.59,9.28' fill='%23ffb703'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root {
+    --bg: #f5f6fb;
+    --surface: #ffffff;
+    --surface-2: #eef0f8;
+    --fg: #141a33;
+    --muted: #5a6385;
+    --line: #dfe3f1;
+    --brand-1: #6d5dfc;
+    --brand-2: #22b8e6;
+    --brand-3: #ffb703;
+    --shadow: 0 10px 30px rgba(32, 40, 90, .10);
+    --hero-glow-a: rgba(109, 93, 252, .28);
+    --hero-glow-b: rgba(34, 184, 230, .25);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #080c1c;
+      --surface: #111835;
+      --surface-2: #19224a;
+      --fg: #eaeefc;
+      --muted: #a2acd0;
+      --line: #263057;
+      --brand-1: #8b7dff;
+      --brand-2: #45cbf2;
+      --brand-3: #ffc83d;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .45);
+      --hero-glow-a: rgba(139, 125, 255, .30);
+      --hero-glow-b: rgba(69, 203, 242, .22);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.7 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--brand-1); }
+
+  /* ---------- top bar ---------- */
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar-inner {
+    max-width: 980px; margin: 0 auto; padding: 12px 20px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .2px; font-size: 1.15rem; }
+  .brand svg { width: 28px; height: 28px; filter: drop-shadow(0 2px 6px rgba(255, 183, 3, .55)); animation: twinkle 3.6s ease-in-out infinite; }
+  .brand b { background: linear-gradient(90deg, var(--brand-1), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tag { font-size: .82rem; color: var(--muted); border: 1px solid var(--line); padding: 4px 10px; border-radius: 999px; background: var(--surface); }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; overflow: hidden; padding: 64px 20px 72px; text-align: center; isolation: isolate; }
+  .hero::before, .hero::after {
+    content: ""; position: absolute; z-index: -1; width: 520px; height: 520px; border-radius: 50%; filter: blur(70px);
+  }
+  .hero::before { background: var(--hero-glow-a); top: -200px; left: -120px; animation: drift 14s ease-in-out infinite alternate; }
+  .hero::after  { background: var(--hero-glow-b); bottom: -240px; right: -120px; animation: drift 17s ease-in-out infinite alternate-reverse; }
+
+
+  .hero > .fade { position: absolute; left: 0; right: 0; bottom: 0; height: 140px; z-index: 0; pointer-events: none; background: linear-gradient(to bottom, transparent, var(--bg)); }
+  .hero > *:not(.stars):not(.fade) { position: relative; z-index: 1; }
+
+  .stars span {
+    position: absolute; z-index: -1; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--brand-3); opacity: .0; animation: sparkle 5s ease-in-out infinite;
+  }
+  .stars span:nth-child(1) { top: 18%; left: 12%; animation-delay: .2s; }
+  .stars span:nth-child(2) { top: 30%; left: 86%; animation-delay: 1.4s; width: 8px; height: 8px; }
+  .stars span:nth-child(3) { top: 70%; left: 20%; animation-delay: 2.2s; }
+  .stars span:nth-child(4) { top: 78%; left: 78%; animation-delay: 3.1s; width: 5px; height: 5px; }
+  .stars span:nth-child(5) { top: 12%; left: 60%; animation-delay: 3.8s; width: 4px; height: 4px; }
+
+  .wheel-wrap { width: 168px; height: 168px; margin: 0 auto 22px; position: relative; animation: float 6s ease-in-out infinite; }
+  .wheel-wrap svg { width: 100%; height: 100%; overflow: visible; }
+  .wheel { transform-origin: 100px 100px; animation: spin 26s linear infinite; }
+  .wheel-glow { position: absolute; inset: 12px; border-radius: 50%; box-shadow: 0 18px 50px rgba(109, 93, 252, .45); z-index: -1; }
+
+  .eyebrow { display: inline-block; font-size: .8rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--brand-1); background: color-mix(in srgb, var(--brand-1) 12%, transparent); padding: 6px 14px; border-radius: 999px; }
+  h1 { font-size: clamp(2rem, 5.5vw, 3.2rem); line-height: 1.12; margin: 16px 0 10px; letter-spacing: -.5px; }
+  h1 span { background: linear-gradient(90deg, var(--brand-1), var(--brand-2) 60%, var(--brand-3)); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 8s linear infinite; }
+  .lead { max-width: 620px; margin: 0 auto; color: var(--muted); font-size: 1.1rem; }
+  .meta { margin-top: 18px; color: var(--muted); font-size: .92rem; }
+  .meta strong { color: var(--fg); }
+
+  /* ---------- badges ---------- */
+  .badges { max-width: 980px; margin: -34px auto 0; padding: 0 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; position: relative; z-index: 2; }
+  .badge { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px 16px; text-align: center; box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease; }
+  .badge:hover { transform: translateY(-4px); }
+  .badge .ico { width: 46px; height: 46px; margin: 0 auto 8px; border-radius: 14px; display: grid; place-items: center; font-size: 1.4rem; background: linear-gradient(135deg, color-mix(in srgb, var(--brand-1) 22%, transparent), color-mix(in srgb, var(--brand-2) 22%, transparent)); }
+  .badge h3 { margin: 0 0 2px; font-size: 1rem; }
+  .badge p { margin: 0; font-size: .88rem; color: var(--muted); line-height: 1.45; }
+
+  /* ---------- content ---------- */
+  main { max-width: 820px; margin: 0 auto; padding: 56px 20px 40px; }
+  .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; }
+  .toc a { display: inline-block; text-decoration: none; font-size: .88rem; color: var(--fg); background: var(--surface); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; transition: background .2s, border-color .2s, transform .2s; }
+  .toc a:hover { border-color: var(--brand-1); transform: translateY(-2px); }
+
+  .card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px 26px 22px 26px; margin: 0 0 18px; box-shadow: var(--shadow); }
+  .card::before { content: ""; position: absolute; left: 0; top: 22px; bottom: 22px; width: 4px; border-radius: 0 4px 4px 0; background: linear-gradient(var(--brand-1), var(--brand-2)); }
+  .card h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 8px; font-size: 1.25rem; }
+  .num { flex: none; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 10px; font-size: .9rem; font-weight: 800; color: #fff; background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); }
+  .card p { margin: 8px 0; color: var(--fg); }
+  .card ul { margin: 10px 0 4px; padding: 0; list-style: none; }
+  .card li { position: relative; padding: 6px 0 6px 28px; }
+  .card li::before { content: "✓"; position: absolute; left: 0; top: 6px; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-size: .72rem; font-weight: 800; color: #fff; background: #19b36b; }
+
+  .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
+  .js .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- footer ---------- */
+  footer { text-align: center; padding: 34px 20px 54px; color: var(--muted); font-size: .92rem; border-top: 1px solid var(--line); }
+  footer .brand { justify-content: center; margin-bottom: 6px; }
+
+  /* ---------- keyframes ---------- */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(60px, 40px) scale(1.15); } }
+  @keyframes shine { to { background-position: 200% 0; } }
+  @keyframes twinkle { 0%, 100% { transform: scale(1) rotate(0); } 50% { transform: scale(1.14) rotate(12deg); } }
+  @keyframes sparkle { 0%, 100% { opacity: 0; transform: scale(.4); } 50% { opacity: .9; transform: scale(1.2); } }
+
+  @media (max-width: 720px) {
+    .badges { grid-template-columns: 1fr; margin-top: -26px; }
+    .hero { padding: 48px 18px 60px; }
+    .tag { display: none; }
+    .card { padding: 22px 18px 18px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner">
+    <div class="brand" aria-label="MiniStar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12.00,2.60 14.41,9.28 21.51,9.51 15.90,13.87 17.88,20.69 12.00,16.70 6.12,20.69 8.10,13.87 2.49,9.51 9.59,9.28" fill="#ffb703"/></svg>
+      <span>Mini<b>Star</b></span>
+    </div>
+    <span class="tag">Privacy Policy</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="fade" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+  <div class="wheel-wrap" aria-hidden="true">
+    <div class="wheel-glow"></div>
+    <svg viewBox="0 0 200 200">
+      <g class="wheel">
+        <path d="M100 100 L100.00 6.00 A94 94 0 0 1 166.47 33.53 Z" fill="#ff5d73"/>
+        <path d="M100 100 L166.47 33.53 A94 94 0 0 1 194.00 100.00 Z" fill="#ff9f43"/>
+        <path d="M100 100 L194.00 100.00 A94 94 0 0 1 166.47 166.47 Z" fill="#ffd23f"/>
+        <path d="M100 100 L166.47 166.47 A94 94 0 0 1 100.00 194.00 Z" fill="#3ddc84"/>
+        <path d="M100 100 L100.00 194.00 A94 94 0 0 1 33.53 166.47 Z" fill="#2dd4bf"/>
+        <path d="M100 100 L33.53 166.47 A94 94 0 0 1 6.00 100.00 Z" fill="#38bdf8"/>
+        <path d="M100 100 L6.00 100.00 A94 94 0 0 1 33.53 33.53 Z" fill="#8b5cf6"/>
+        <path d="M100 100 L33.53 33.53 A94 94 0 0 1 100.00 6.00 Z" fill="#e879f9"/>
+        <circle cx="100" cy="100" r="94" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="3"/>
+        <circle cx="100" cy="100" r="16" fill="#ffffff"/>
+        <circle cx="100" cy="100" r="7" fill="#6d5dfc"/>
+      </g>
+      <polygon points="100,2 90,-14 110,-14" fill="#ffb703" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <span class="eyebrow">Privacy Policy</span>
+  <h1><span>Spin Wheel</span></h1>
+  <p class="lead">Spin Wheel works fully offline and does not collect, share or sell any personal data. This page explains exactly what the app does and does not do.</p>
+  <p class="meta"><strong>Developer:</strong> MiniStar &nbsp;·&nbsp; <strong>Last updated:</strong> November 19, 2026</p>
+</section>
+
+<section class="badges" aria-label="Highlights">
+  <div class="badge reveal">
+    <div class="ico" aria-hidden="true">📴</div>
+    <h3>100% offline</h3>
+    <p>No internet access needed or requested.</p>
+  </div>
+  <div class="badge reveal">
+    <div class="ico" aria-hidden="true">🔒</div>
+    <h3>No data collected</h3>
+    <p>Nothing leaves your device.</p>
+  </div>
+  <div class="badge reveal">
+    <div class="ico" aria-hidden="true">🚫</div>
+    <h3>No ads or tracking</h3>
+    <p>No analytics, no accounts.</p>
+  </div>
+</section>
+
+<main>
+  <ul class="toc" aria-label="Sections">
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#device">Stored on your device</a></li>
+    <li><a href="#permissions">Permissions</a></li>
+    <li><a href="#ads">Ads &amp; tracking</a></li>
+    <li><a href="#children">Children</a></li>
+    <li><a href="#changes">Changes</a></li>
+  </ul>
+
+  <article class="card reveal" id="summary">
+    <h2><span class="num">1</span>Summary</h2>
+    <p>Spin Wheel does not collect, transmit, share or sell any personal data. The app works completely offline.</p>
+  </article>
+
+  <article class="card reveal" id="device">
+    <h2><span class="num">2</span>Information stored on your device</h2>
+    <p>To make the app convenient, Spin Wheel saves the following only on your own device:</p>
+    <ul>
+      <li>the list of options you type into the wheel;</li>
+      <li>your app settings, such as sound on or off and the “Remove winner after spin” switch.</li>
+    </ul>
+    <p>This information never leaves your device and is not sent to the developer or to anyone else. You can remove it at any time by using the Reset button, clearing the app’s storage in your phone’s settings, or uninstalling the app.</p>
+  </article>
+
+  <article class="card reveal" id="permissions">
+    <h2><span class="num">3</span>Permissions</h2>
+    <p>Spin Wheel does not request permission to access your location, contacts, camera, microphone, photos, files, phone number or the internet.</p>
+  </article>
+
+  <article class="card reveal" id="ads">
+    <h2><span class="num">4</span>Ads, analytics and tracking</h2>
+    <p>The app contains no advertising, no analytics, no tracking and no user accounts. It does not use any online service.</p>
+  </article>
+
+  <article class="card reveal" id="children">
+    <h2><span class="num">5</span>Children</h2>
+    <p>Because the app collects no personal data from anyone, it does not knowingly collect information from children.</p>
+  </article>
+
+  <article class="card reveal" id="changes">
+    <h2><span class="num">6</span>Changes to this policy</h2>
+    <p>If this policy changes, the updated version will be published on this page with a new “Last updated” date.</p>
+  </article>
+</main>
+
+<footer>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12.00,2.60 14.41,9.28 21.51,9.51 15.90,13.87 17.88,20.69 12.00,16.70 6.12,20.69 8.10,13.87 2.49,9.51 9.59,9.28" fill="#ffb703"/></svg>
+    <span>Mini<b>Star</b></span>
+  </div>
+  <div>© 2026 MiniStar. All rights reserved.</div>
+</footer>
+
+<script>
+  (function () {
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function (el, i) {
+      el.style.transitionDelay = (i % 3) * 80 + 'ms';
+      io.observe(el);
+    });
+  })();
+</script>
+</body>
+</html>
